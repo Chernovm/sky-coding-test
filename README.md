@@ -19,44 +19,30 @@
 <li>frontend/views/site/registration.php - main form's view file</li>
 </ul>
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
+## Preparing application
 
-DIRECTORY STRUCTURE
--------------------
+After you install the application, you have to conduct the following steps to initialize
+the installed application. You only need to do these once for all.
 
-```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-```
+1. Open a console terminal, execute the `init` command and select `dev` as environment.
+
+   ```
+   /path/to/php-bin/php /path/to/yii-application/init
+   ```
+
+   If you automate it with a script you can execute `init` in non-interactive mode.
+
+   ```
+   /path/to/php-bin/php /path/to/yii-application/init --env=Development --overwrite=All
+   ```
+
+2. Create a new database and adjust the `components['db']` configuration in `/path/to/yii-application/common/config/main-local.php` accordingly.
+
+3. Open a console terminal, apply migrations with command `/path/to/php-bin/php /path/to/yii-application/yii migrate`.
+
+4. Set document roots of your web server:
+
+   - for frontend `/path/to/yii-application/frontend/web/` and using the URL `http://frontend.test/`
+   - for backend `/path/to/yii-application/backend/web/` and using the URL `http://backend.test/`
+
+<p> We'll need to use only frontend.test domain: http://frontend.test/index.php?r=site%2Fregistration - url for main actions

@@ -246,4 +246,36 @@ class SiteController extends Controller
             'model' => $model, 'message' => $message
         ]);
     }
+
+    public function actionDummyCache()
+    {
+        function($date, $type) {
+            $userId = Yii::$app->user->id;
+            // Store in cache for 60 seconds
+            $duration = 60;
+            $db = SomeDataModel::getDb();            
+            $dependency = new yii\caching\DbDependency();
+            $dependency->sql = 'SELECT count(*) FROM ' . SomeDataModel::tableName();
+
+            $dataList = $db->cache(
+                function ($db) use ($date, $type, $userId) {
+                    return SomeDataModel::find()
+                        ->where(['date' => $date, 'type' => $type, 'user_id' => $userId])
+                        ->all();
+                }, 
+                $duration, 
+                $dependency
+            );
+
+            $result = [];
+         
+            if (!empty($dataList)) {
+                foreach ($dataList as $dataItem) {
+                    $result[$dataItem->id] = ['a' => $dataItem->a, 'b' => $dataItem->b];
+                }
+            }
+         
+            return $result;
+        };      
+    }
 }

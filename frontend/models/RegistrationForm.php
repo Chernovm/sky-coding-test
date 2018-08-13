@@ -5,7 +5,7 @@ use yii\base\Model;
 use common\models\SkyUser;
 
 /**
- * Registration form
+ * Registration form model, all validation will be performed here
  */
 class RegistrationForm extends Model
 {

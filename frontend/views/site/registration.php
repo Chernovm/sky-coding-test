@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php
+        // Main form state indicator
         echo Alert::widget([
             'options' => [
                 'class' => (empty($message) ? 'alert-info' : 'alert-success'),
@@ -27,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'body' => (empty($message) ? 'Please fill out the following fields to register new sky-user:' : $message),
         ]);
     ?>
-    <!-- <p></p> -->
 
     <div class="row">
         <div class="col-lg-5">

@@ -25,6 +25,7 @@ class m130524_201442_init extends Migration
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
 
+        // Create sky_user table
         $this->createTable('{{%sky_user}}', [
             'id' => $this->primaryKey(),
             'firstname' => $this->string()->notNull(),
@@ -38,6 +39,7 @@ class m130524_201442_init extends Migration
             'company_name' => $this->string(),
         ], $tableOptions);
 
+        // Create unique constraint for sky_user's multiple columns
         $this->createIndex('idx_unique_full_name',
             '{{%sky_user}}', 
             ['firstname', 'lastname', 'patronymic'], 

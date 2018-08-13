@@ -6,7 +6,7 @@ use yii\base\NotSupportedException;
 use yii\db\ActiveRecord;
 
 /**
- * SkyUser model
+ * SkyUser model, all validation will be performed in form model
  *
  * @property integer $id
  * @property string $firstname

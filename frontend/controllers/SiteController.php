@@ -233,7 +233,9 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {            
             if ($skyUser = $model->register()) {
+                // If SkyUser was successfully saved to DB, id will not be empty
                 if (!empty($skyUser->id)) {
+                    // Return success message to UI
                     $message = "Sky User " . $skyUser->getFullName() . " was created";
                     $model = new RegistrationForm();
                 }

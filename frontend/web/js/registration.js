@@ -1,4 +1,8 @@
-$(function() { 
+$(function() {
+    // This simple js script utilizes form's UI interaction with user
+    // It hides/shows different fields of form (which are necessary or not)
+    // In accordance with required fields
+
     var isLegalBody = false; 
     var privateEnterpInputGroup = $(".field-registrationform-private_enterpreneur");
     var companyNameInputGroup = $(".field-registrationform-company_name");

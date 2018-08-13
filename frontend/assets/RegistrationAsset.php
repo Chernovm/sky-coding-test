@@ -5,7 +5,7 @@ namespace frontend\assets;
 use yii\web\AssetBundle;
 
 /**
- * Registration page form interaction asset bundle.
+ * Registration page form interaction asset bundle
  */
 class RegistrationAsset extends AssetBundle
 {
